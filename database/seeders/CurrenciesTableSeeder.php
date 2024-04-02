@@ -479,6 +479,14 @@ class CurrenciesTableSeeder extends Seeder
                 'decimal_separator' => '.',
             ],
             [
+                'name' => 'Libyan Dinar',
+                'code' => 'LYD',
+                'symbol' => 'LD',
+                'precision' => '3',
+                'thousand_separator' => ',',
+                'decimal_separator' => '.',
+            ],
+            [
                 'name' => 'Russian Ruble',
                 'code' => 'RUB',
                 'symbol' => '₽',
