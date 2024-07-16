@@ -1,3 +1,39 @@
+# ⚠️ Archived: This project is no longer in active development! ⚠️⚠️
+
+```
+Dear Crater Community,
+
+As we bring this chapter of Crater to a close, we want to express our deepest
+gratitude for your unwavering support and contributions. Your dedication has been
+the backbone of this project, and we couldn’t have come this far without you.
+
+Over time, our focus shifted towards developing a business version of the Crater
+API, which evolved into a distinct product. This transition brought about
+compliance challenges that made it difficult to maintain the open-source version.
+Despite our best efforts, the demands of the enterprise version and limited
+resources have made it challenging to continue developing new features for the OSS
+version.
+
+In light of these challenges, we have decided to archive the Crater project. This
+means there will be no further development, including security updates. However,
+we are excited to announce that the future development of Crater will continue
+under a new fork called InvoiceShelf. It's fully maintained by the community and
+we believe this new direction will better serve the community and keep the spirit
+of Crater alive. You can find the new project here: InvoiceShelf.
+
+Thank you once again for being a part of this incredible journey. We look forward
+to seeing the amazing things you will achieve with InvoiceShelf
+https://github.com/InvoiceShelf/InvoiceShelf.
+
+Warm regards,
+The Crater Team
+```
+
+# fork: [InvoiceShelf](https://github.com/InvoiceShelf/InvoiceShelf)
+The new fork of Crater is called InvoiceShelf, the transition should be smooth as they are picking up the development from the last Crater release, but please consolt documentation before making a migration.
+
+---
+
 <img src="https://res.cloudinary.com/bytefury/image/upload/v1574149856/Crater/craterframe.png">
 
 ## Introduction
