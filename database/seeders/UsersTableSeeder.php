@@ -28,7 +28,8 @@ class UsersTableSeeder extends Seeder
         $company = Company::create([
             'name' => 'xyz',
             'owner_id' => $user->id,
-            'slug' => 'xyz'
+            'slug' => 'xyz',
+            'ice' => '11112222',
         ]);
 
         $company->unique_hash = Hashids::connection(Company::class)->encode($company->id);

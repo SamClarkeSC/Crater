@@ -865,6 +865,7 @@
       "company_name": "Nom",
       "company_logo": "Logo",
       "section_description": "Saisissez ici les coordonnées de votre entreprise qui s'afficheront sur tous vos documents.",
+      "ice": "ICE",
       "phone": "Téléphone",
       "country": "Pays",
       "state": "État",

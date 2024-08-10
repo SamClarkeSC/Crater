@@ -61,10 +61,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, reactive } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { required, email, helpers } from '@vuelidate/validators'
-import useVuelidate from '@vuelidate/core'
 import { useCompanyStore } from '@/scripts/admin/stores/company'
 
 const companyStore = useCompanyStore()

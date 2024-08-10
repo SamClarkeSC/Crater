@@ -1,8 +1,7 @@
+import { handleError } from '@/scripts/helpers/error-handling'
+import { useNotificationStore } from '@/scripts/stores/notification'
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import { useNotificationStore } from '@/scripts/stores/notification'
-import { handleError } from '@/scripts/helpers/error-handling'
-import Ls from '@/scripts/services/ls'
 
 export const useCompanyStore = (useWindow = false) => {
   const defineStoreFunc = useWindow ? window.pinia.defineStore : defineStore
@@ -51,6 +50,8 @@ export const useCompanyStore = (useWindow = false) => {
               })
 
               this.selectedCompany = response.data.data
+
+              console.log(this.selectedCompany)
 
               resolve(response)
             })

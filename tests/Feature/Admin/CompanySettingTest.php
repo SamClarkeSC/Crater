@@ -72,6 +72,7 @@ test('update company', function () {
         'country_id' => 2,
         'state' => 'city',
         'city' => 'state',
+        'ice' => '123456789',
         'address_street_1' => 'test1',
         'address_street_2' => 'test2',
         'phone' => '1234567890',

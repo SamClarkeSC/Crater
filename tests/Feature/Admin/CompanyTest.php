@@ -34,6 +34,7 @@ test('store user using a form request', function () {
 test('store company', function () {
     $company = Company::factory()->raw([
         'currency' => 12,
+        'ice' => '123456789',
         'address' => [
             'country_id' => 12
         ]

@@ -1,64 +1,33 @@
 <template>
   <form @submit.prevent="updateCompanyData">
-    <BaseSettingCard
-      :title="$t('settings.company_info.company_info')"
-      :description="$t('settings.company_info.section_description')"
-    >
+    <BaseSettingCard :title="$t('settings.company_info.company_info')"
+      :description="$t('settings.company_info.section_description')">
       <BaseInputGrid class="mt-5">
         <BaseInputGroup :label="$tc('settings.company_info.company_logo')">
-          <BaseFileUploader
-            v-model="previewLogo"
-            base64
-            @change="onFileInputChange"
-            @remove="onFileInputRemove"
-          />
+          <BaseFileUploader v-model="previewLogo" base64 @change="onFileInputChange" @remove="onFileInputRemove" />
         </BaseInputGroup>
       </BaseInputGrid>
 
       <BaseInputGrid class="mt-5">
-        <BaseInputGroup
-          :label="$tc('settings.company_info.company_name')"
-          :error="v$.name.$error && v$.name.$errors[0].$message"
-          required
-        >
-          <BaseInput
-            v-model="companyForm.name"
-            :invalid="v$.name.$error"
-            @blur="v$.name.$touch()"
-          />
+        <BaseInputGroup :label="$tc('settings.company_info.company_name')"
+          :error="v$.name.$error && v$.name.$errors[0].$message" required>
+          <BaseInput v-model="companyForm.name" :invalid="v$.name.$error" @blur="v$.name.$touch()" />
         </BaseInputGroup>
 
         <BaseInputGroup :label="$tc('settings.company_info.phone')">
           <BaseInput v-model="companyForm.address.phone" />
         </BaseInputGroup>
 
-        <BaseInputGroup
-          :label="$tc('settings.company_info.country')"
-          :error="
-            v$.address.country_id.$error &&
-            v$.address.country_id.$errors[0].$message
-          "
-          required
-        >
-          <BaseMultiselect
-            v-model="companyForm.address.country_id"
-            label="name"
-            :invalid="v$.address.country_id.$error"
-            :options="globalStore.countries"
-            value-prop="id"
-            :can-deselect="true"
-            :can-clear="false"
-            searchable
-            track-by="name"
-          />
+        <BaseInputGroup :label="$tc('settings.company_info.country')" :error="v$.address.country_id.$error &&
+          v$.address.country_id.$errors[0].$message
+  " required>
+          <BaseMultiselect v-model="companyForm.address.country_id" label="name" :invalid="v$.address.country_id.$error"
+            :options="globalStore.countries" value-prop="id" :can-deselect="true" :can-clear="false" searchable
+            track-by="name" />
         </BaseInputGroup>
 
         <BaseInputGroup :label="$tc('settings.company_info.state')">
-          <BaseInput
-            v-model="companyForm.address.state"
-            name="state"
-            type="text"
-          />
+          <BaseInput v-model="companyForm.address.state" name="state" type="text" />
         </BaseInputGroup>
 
         <BaseInputGroup :label="$tc('settings.company_info.city')">
@@ -69,29 +38,20 @@
           <BaseInput v-model="companyForm.address.zip" />
         </BaseInputGroup>
 
+        <BaseInputGroup :label="$tc('settings.company_info.ice')">
+          <BaseInput v-model="companyForm.ice" type="text"/>
+        </BaseInputGroup>
+
         <div>
           <BaseInputGroup :label="$tc('settings.company_info.address')">
-            <BaseTextarea
-              v-model="companyForm.address.address_street_1"
-              rows="2"
-            />
+            <BaseTextarea v-model="companyForm.address.address_street_1" rows="2" />
           </BaseInputGroup>
 
-          <BaseTextarea
-            v-model="companyForm.address.address_street_2"
-            rows="2"
-            :row="2"
-            class="mt-2"
-          />
+          <BaseTextarea v-model="companyForm.address.address_street_2" rows="2" :row="2" class="mt-2" />
         </div>
       </BaseInputGrid>
 
-      <BaseButton
-        :loading="isSaving"
-        :disabled="isSaving"
-        type="submit"
-        class="mt-6"
-      >
+      <BaseButton :loading="isSaving" :disabled="isSaving" type="submit" class="mt-6">
         <template #left="slotProps">
           <BaseIcon v-if="!isSaving" :class="slotProps.class" name="SaveIcon" />
         </template>
@@ -109,9 +69,7 @@
           </p>
         </div>
         <div class="mt-5">
-          <button
-            type="button"
-            class="
+          <button type="button" class="
               inline-flex
               items-center
               justify-center
@@ -128,9 +86,7 @@
               focus:ring-offset-2
               focus:ring-red-500
               sm:text-sm
-            "
-            @click="removeCompany"
-          >
+            " @click="removeCompany">
             {{ $tc('general.delete') }}
           </button>
         </div>
@@ -141,14 +97,14 @@
 </template>
 
 <script setup>
-import { reactive, ref, inject, computed } from 'vue'
-import { useGlobalStore } from '@/scripts/admin/stores/global'
-import { useCompanyStore } from '@/scripts/admin/stores/company'
-import { useI18n } from 'vue-i18n'
-import { required, minLength, helpers } from '@vuelidate/validators'
-import { useVuelidate } from '@vuelidate/core'
-import { useModalStore } from '@/scripts/stores/modal'
 import DeleteCompanyModal from '@/scripts/admin/components/modal-components/DeleteCompanyModal.vue'
+import { useCompanyStore } from '@/scripts/admin/stores/company'
+import { useGlobalStore } from '@/scripts/admin/stores/global'
+import { useModalStore } from '@/scripts/stores/modal'
+import { useVuelidate } from '@vuelidate/core'
+import { helpers, minLength, required } from '@vuelidate/validators'
+import { computed, inject, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const companyStore = useCompanyStore()
 const globalStore = useGlobalStore()
@@ -161,6 +117,7 @@ let isSaving = ref(false)
 const companyForm = reactive({
   name: null,
   logo: null,
+  ice: null,
   address: {
     address_street_1: '',
     address_street_2: '',
